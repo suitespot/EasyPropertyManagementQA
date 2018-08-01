@@ -26,20 +26,17 @@ describe('PropertyService', () => {
     expect(service).toBeTruthy();
   }));
 
-  it('should call http post with correct path when listing properties', (done) => {
-    propertyService.queryProperties({}, { limit: 10, offset: 0 })
+  it('should call http get with correct path when listing properties', (done) => {
+    propertyService.queryProperties()
       .subscribe((resp) => {
         done();
       });
 
     const req = httpMock.expectOne((request) => {
-      return request.method === 'POST' &&
-        JSON.stringify(request.body) === '{}' &&
+      return request.method === 'GET' &&
         request.url === 'http://localhost:3000/api/properties';
     });
-
     req.flush([]);
-
     httpMock.verify();
   });
 });
