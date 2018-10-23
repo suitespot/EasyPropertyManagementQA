@@ -1,4 +1,4 @@
-# EasyPropertyManagement
+# EasyPropertyManagement QA
 
 A Simple web application for managing rental property assets.
 
